@@ -1,25 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// @ts-ignore
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Login from './components/Login';
+import Join from './components/Join';
+import Home from './components/Home';
+import Layout from './components/Layout/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Layout>
+        <Switch>
+          <Route component={Login} path="/login" exact />
+          <Route component={Join} path="/join" exact />
+          <Route component={Home} path="/" exact />
+        </Switch>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
