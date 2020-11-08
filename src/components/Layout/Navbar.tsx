@@ -1,13 +1,18 @@
 import React from 'react';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import '../../styles/components/Layout/navbar.css';
 
-const Navbar = () => {
+interface Props extends RouteComponentProps {
+  history: any;
+}
+
+const Navbar: React.FunctionComponent<Props> = ({ history }) => {
   return (
     <nav className="navContainer">
       <div className="navTitle">
         <ul>
           <li>
-            <div className="logoContainer">
+            <div className="logoContainer" onClick={() => history.push('/')}>
               <img
                 src="https://smartdoctor.pe/wp-content/uploads/2020/06/logo.png"
                 alt="Logo"
@@ -36,4 +41,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);
