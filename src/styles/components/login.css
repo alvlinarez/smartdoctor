@@ -1,0 +1,87 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  align-items: center;
+}
+
+.loginContainer .card {
+  margin: 0 30%;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 10px;
+  background-color: #ffffff;
+  height: auto;
+  width: 400px;
+}
+
+/* CARD TITLE */
+
+.loginContainer .card .cardTitleContainer {
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  padding: 20px;
+}
+
+.loginContainer .card .cardTitle {
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.loginContainer .card .cardSubtitle {
+  font-size: 14px;
+}
+
+.loginContainer .card .cardSubtitle span {
+  color: #6c48ef;
+}
+
+.loginContainer .card .cardSubtitle span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* CARD BODY */
+.loginContainer .card .cardBodyContainer {
+  padding: 20px;
+}
+
+.loginContainer .card .cardBodyContainer .cardBodyInput {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.loginContainer .card .cardBodyContainer .cardBodyInput label {
+  margin-bottom: 5px;
+}
+
+.loginContainer .card .cardBodyContainer .cardBodyInput input {
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 5px;
+  padding: 5px;
+  line-height: 1.5;
+  background-color: #fafafa;
+  outline-color: #6c48ef;
+}
+
+.loginContainer .card .cardBodyContainer .cardBodyButton {
+  margin-top: 30px;
+}
+
+.loginContainer .card .cardBodyContainer .cardBodyButton button {
+  width: 100%;
+  background: #ffffff;
+  padding: 10px 0;
+  border-radius: 5px;
+  color: #6c48ef;
+  font-size: 16px;
+  border: 2px solid #6c48ef;
+  font-weight: bold;
+}
+
+.loginContainer .card .cardBodyContainer .cardBodyButton button:hover {
+  cursor: pointer;
+  background: #6c48ef;
+  color: #ffffff;
+  transition: all .3s ease 0ms;
+}

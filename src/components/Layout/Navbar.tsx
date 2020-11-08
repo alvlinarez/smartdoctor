@@ -28,11 +28,11 @@ const Navbar: React.FunctionComponent<Props> = ({ history }) => {
             </div>
 
             <div className="navOption">
-              <span>Login</span>
+              <span onClick={() => history.push('/login')}>Login</span>
             </div>
 
             <div className="navOption">
-              <span>Join</span>
+              <span onClick={() => history.push('/join')}>Join</span>
             </div>
           </div>
         </ul>
