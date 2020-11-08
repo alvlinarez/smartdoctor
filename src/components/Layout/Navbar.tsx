@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import '../../styles/components/Layout/navbar.css';
+import '../../styles/components/layout/navbar.css';
 
 interface Props extends RouteComponentProps {
   history: any;

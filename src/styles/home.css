@@ -1,0 +1,28 @@
+.homeContainer {
+  padding: 0 100px;
+}
+
+.homeContainer .homeTitleContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.homeContainer .homeTitle {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.homeContainer .homeButton button {
+  background-color: #6c48ef;
+  padding: 10px 0;
+  width: 150px;
+  border: 2px solid transparent;
+  color: #ffffff;
+  outline: none;
+}
+
+.homeContainer .homeButton button:hover {
+  cursor: pointer;
+}
+

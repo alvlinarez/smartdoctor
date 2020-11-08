@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/components/login.css';
+import '../styles/login.css';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 interface Props extends RouteComponentProps {

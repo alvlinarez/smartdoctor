@@ -1,0 +1,49 @@
+.eventContainer {
+  border-top: 1px solid rgba(0,0,0,.12);
+  /*padding: 30px 0;*/
+}
+
+.eventContainer .eventDate {
+  text-transform: uppercase;
+  color: rgb(135, 116, 87);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 0;
+}
+
+.eventContainer .eventTitle {
+  color: rgb(33, 33, 33);
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.eventContainer .eventAuthor {
+  color: rgb(117, 117, 117);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.eventContainer .eventSubscription {
+  margin-bottom: 20px;
+}
+
+.eventContainer .eventSubscription button {
+  padding: 10px 0;
+  width: 100px;
+  border: 2px solid transparent;
+  color: #ffffff;
+  outline: none;
+}
+
+.eventContainer .eventSubscription button:hover {
+  cursor: pointer;
+}
+
+.eventContainer .eventSubscription .subscriptionButton {
+  background-color: #987FF4;
+}
+
+.eventContainer .eventSubscription .unSubscriptionButton {
+  background-color: #7A6FA1;
+}
