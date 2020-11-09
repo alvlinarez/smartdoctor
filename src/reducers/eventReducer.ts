@@ -4,7 +4,7 @@ interface ActionType {
   type: string;
   payload: any;
 }
-//2020-11-27T14:03
+
 const initialState = {
   events: [
     {

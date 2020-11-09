@@ -9,6 +9,7 @@ import NewEvent from './components/New-Event/NewEvent';
 import PrivateRoute from './routes/PrivateRoute';
 
 function App() {
+  // Getting if user is authenticated
   const isAuth = useSelector(
     (state: { user: { isAuth: boolean } }) => state.user.isAuth
   );
@@ -19,6 +20,7 @@ function App() {
           <Route component={Login} path="/login" exact />
           <Route component={Join} path="/join" exact />
           <Route component={Home} path="/" exact />
+          {/*Only authenticated users can create events*/}
           <PrivateRoute
             component={NewEvent}
             isAuth={isAuth}

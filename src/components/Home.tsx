@@ -5,7 +5,9 @@ import '../styles/home.css';
 import { useSelector } from 'react-redux';
 
 const Home = () => {
+  // Routing
   const history = useHistory();
+  // Getting states from store
   const isAuth = useSelector(
     (state: { user: { isAuth: boolean } }) => state.user.isAuth
   );
@@ -15,6 +17,8 @@ const Home = () => {
   let events = useSelector(
     (state: { event: { events: any[] } }) => state.event.events
   );
+
+  // Sort events by date
   events = events.sort(
     (a, b) => (new Date(a.eventDate) as any) - (new Date(b.eventDate) as any)
   );
@@ -23,6 +27,8 @@ const Home = () => {
     (state: { subscription: { subscriptions: any[] } }) =>
       state.subscription.subscriptions
   );
+  // Filter user subscriptions and return just the eventId of each subscription
+  // to know if user is already subscribed to that event or not
   const subscriptionsEventsIds = subscriptions
     .filter((s) => s.userId === user.id)
     .map((s) => s.eventId);

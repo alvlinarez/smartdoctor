@@ -5,11 +5,15 @@ import { addEvent } from '../../actions/eventActions';
 import '../../styles/login.css';
 
 const NewEvent = () => {
+  // routing
   const history = useHistory();
+  // To make changes in states of store
   const dispatch = useDispatch();
+  // Getting states from store
   const user = useSelector(
     (state: { user: { currentUser: any } }) => state.user.currentUser
   );
+  // State for new event form values
   const [values, setValues] = useState<any>({
     name: '',
     eventDate: '',
@@ -25,6 +29,7 @@ const NewEvent = () => {
   };
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    // prevent empty fields
     if (
       name.trim() === '' ||
       eventDate.trim() === '' ||
@@ -34,6 +39,7 @@ const NewEvent = () => {
       return;
     }
     setErrorForm(null);
+    // create event
     dispatch(addEvent(name, eventDate, location, user.id, history));
   };
   return (

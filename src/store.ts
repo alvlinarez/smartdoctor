@@ -1,6 +1,8 @@
 import { createStore } from 'redux';
 import { reducer } from './reducers';
 
+
+// creating store with all reducers combined
 export const store = createStore(
   reducer,
   typeof window === 'object' &&

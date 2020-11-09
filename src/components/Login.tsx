@@ -9,7 +9,9 @@ interface Props extends RouteComponentProps {
 }
 
 const Login = ({ history }: Props) => {
+  // To make changes in states of store
   const dispatch = useDispatch();
+  // Getting states from store
   const error = useSelector(
     (state: { user: { error: any } }) => state.user.error
   );
@@ -20,12 +22,14 @@ const Login = ({ history }: Props) => {
     (state: { user: { users: any[] } }) => state.user.users
   );
 
+  // State for login form values
   const [values, setValues] = useState<any>({
     email: '',
     password: ''
   });
   const { email, password } = values;
 
+  // State for login form errors
   const [errorForm, setErrorForm] = useState<any>(null);
 
   const handleChange = (e: any) => {
@@ -37,11 +41,13 @@ const Login = ({ history }: Props) => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    // prevent empty fields
     if (email.trim() === '' || password === '') {
       setErrorForm('All fields are required.');
       return;
     }
     setErrorForm(null);
+    // login user
     dispatch(login(email, password, users, history));
   };
 

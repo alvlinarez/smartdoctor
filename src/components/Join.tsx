@@ -9,7 +9,9 @@ interface Props extends RouteComponentProps {
 }
 
 const Join = ({ history }: Props) => {
+  // To make changes in states of store
   const dispatch = useDispatch();
+  // Getting states from store
   const error = useSelector(
     (state: { user: { error: any } }) => state.user.error
   );
@@ -20,6 +22,7 @@ const Join = ({ history }: Props) => {
     (state: { user: { users: any[] } }) => state.user.users
   );
 
+  // State for join form values
   const [values, setValues] = useState<any>({
     name: '',
     email: '',
@@ -27,6 +30,7 @@ const Join = ({ history }: Props) => {
   });
   const { name, email, password } = values;
 
+  // State for join form errors
   const [errorForm, setErrorForm] = useState<any>(null);
 
   const handleChange = (e: any) => {
@@ -38,15 +42,18 @@ const Join = ({ history }: Props) => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    // Prevent empty fields
     if (name.trim() === '' || email.trim() === '' || password === '') {
       setErrorForm('All fields are required.');
       return;
     }
     setErrorForm(null);
+    // Register User
     dispatch(join({ name, email, password }, users, history));
   };
 
   if (isAuth) {
+    // if user is authenticated, redirect to home page
     return <Redirect to={'/'} />;
   }
 
