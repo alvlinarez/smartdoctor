@@ -12,9 +12,13 @@ const Home = () => {
   const user = useSelector(
     (state: { user: { currentUser: any } }) => state.user.currentUser
   );
-  const events = useSelector(
+  let events = useSelector(
     (state: { event: { events: any[] } }) => state.event.events
   );
+  events = events.sort(
+    (a, b) => (new Date(a.eventDate) as any) - (new Date(b.eventDate) as any)
+  );
+
   const subscriptions = useSelector(
     (state: { subscription: { subscriptions: any[] } }) =>
       state.subscription.subscriptions

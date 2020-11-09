@@ -1,9 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-
-import '../../styles/components/event/event.css';
+import { format } from 'date-fns';
 import { useDispatch, useSelector } from 'react-redux';
 import { subscribe, unsubscribe } from '../../actions/subscriptionActions';
+import '../../styles/components/event/event.css';
 
 interface EventInterface {
   event: any;
@@ -11,7 +11,7 @@ interface EventInterface {
 }
 
 const Event = ({ event, isSubscribed }: EventInterface) => {
-  const { date, name, authorId } = event;
+  const { eventDate, name, authorId } = event;
   const history = useHistory();
   const dispatch = useDispatch();
   const isAuth = useSelector(
@@ -26,9 +26,20 @@ const Event = ({ event, isSubscribed }: EventInterface) => {
     (state: { user: { users: any } }) => state.user.users
   );
 
+  const subscriptions = useSelector(
+    (state: { subscription: { subscriptions: any } }) =>
+      state.subscription.subscriptions
+  );
+
   const getAuthor = () => {
     const author = users.find((u: { id: any }) => u.id === authorId);
     return author.name;
+  };
+
+  const isEventOwner = () => {
+    return subscriptions.find(
+      (sub: any) => sub.userId === user.id && sub.eventId === event.id
+    );
   };
 
   const handleSubscribe = () => {
@@ -42,13 +53,26 @@ const Event = ({ event, isSubscribed }: EventInterface) => {
   const handleUnsubscribe = () => {
     dispatch(unsubscribe(user.id, event.id));
   };
+
+  const formatEventDate = (eventDate: string) => {
+    return format(new Date(eventDate), 'PPp');
+  };
+
   return (
     <div className="eventContainer">
-      <div className="eventDate">{date}</div>
+      <div className="eventDate">{formatEventDate(eventDate)}</div>
       <div className="eventTitle">{name}</div>
       <div className="eventAuthor">{getAuthor()}</div>
       <div className="eventSubscription">
-        {isSubscribed ? (
+        {isEventOwner() ? (
+          <button
+            type="button"
+            className="unSubscriptionButton"
+            style={{ opacity: 0.6 }}
+          >
+            Your Event
+          </button>
+        ) : isSubscribed ? (
           <button
             type="button"
             className="unSubscriptionButton"

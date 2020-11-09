@@ -3,16 +3,20 @@ import short from 'short-uuid';
 
 export const addEvent = (
   name: string,
-  date: string,
+  eventDate: string,
   location: string,
-  userId: string
-) => ({
-  type: CREATE_NEW_EVENT,
-  payload: {
-    id: short.generate(),
-    name,
-    date,
-    location,
-    userId
-  }
-});
+  authorId: string,
+  history: any
+) => {
+  history.push('/');
+  return {
+    type: CREATE_NEW_EVENT,
+    payload: {
+      id: short.generate(),
+      name,
+      eventDate,
+      location,
+      authorId
+    }
+  };
+};
