@@ -1,16 +1,16 @@
 import { SUBSCRIBE, UNSUBSCRIBE } from '../types/subscriptionTypes';
 import short from 'short-uuid';
 
-export const subscribe = (idUser: string, idEvent: string) => ({
+export const subscribe = (userId: string, eventId: string) => ({
   type: SUBSCRIBE,
   payload: {
     id: short.generate(),
-    idUser,
-    idEvent
+    userId,
+    eventId
   }
 });
 
-export const unSubscribe = (idUser: string, idEvent: string) => ({
+export const unsubscribe = (userId: string, eventId: string) => ({
   type: UNSUBSCRIBE,
-  payload: { idUser, idEvent }
+  payload: { userId, eventId }
 });

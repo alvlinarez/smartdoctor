@@ -5,7 +5,7 @@ export const addEvent = (
   name: string,
   date: string,
   location: string,
-  idUser: string
+  userId: string
 ) => ({
   type: CREATE_NEW_EVENT,
   payload: {
@@ -13,6 +13,6 @@ export const addEvent = (
     name,
     date,
     location,
-    idUser
+    userId
   }
 });

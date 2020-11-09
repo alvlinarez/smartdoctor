@@ -9,23 +9,23 @@ const initialState = {
   subscriptions: [
     {
       id: '1',
-      idUser: '2',
-      idEvent: '3'
+      userId: '2',
+      eventId: '3'
     },
     {
       id: '1',
-      idUser: '2',
-      idEvent: '1'
+      userId: '2',
+      eventId: '1'
     },
     {
       id: '1',
-      idUser: '1',
-      idEvent: '1'
+      userId: '1',
+      eventId: '1'
     },
     {
       id: '1',
-      idUser: '3',
-      idEvent: '3'
+      userId: '3',
+      eventId: '3'
     }
   ]
 };
@@ -45,8 +45,8 @@ export const subscriptionReducer = (
         ...state,
         subscriptions: state.subscriptions.filter(
           (sub) =>
-            sub.idUser !== action.payload.idUser &&
-            sub.idEvent !== action.payload.idEvent
+            sub.userId !== action.payload.userId &&
+            sub.eventId !== action.payload.eventId
         )
       };
     default:

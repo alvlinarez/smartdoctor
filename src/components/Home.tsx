@@ -9,6 +9,19 @@ const Home = () => {
   const isAuth = useSelector(
     (state: { user: { isAuth: boolean } }) => state.user.isAuth
   );
+  const user = useSelector(
+    (state: { user: { currentUser: any } }) => state.user.currentUser
+  );
+  const events = useSelector(
+    (state: { event: { events: any[] } }) => state.event.events
+  );
+  const subscriptions = useSelector(
+    (state: { subscription: { subscriptions: any[] } }) =>
+      state.subscription.subscriptions
+  );
+  const subscriptionsEventsIds = subscriptions
+    .filter((s) => s.userId === user.id)
+    .map((s) => s.eventId);
   return (
     <div className="homeContainer">
       <div className="homeTitleContainer">
@@ -23,8 +36,13 @@ const Home = () => {
       </div>
 
       <div>
-        <Event />
-        <Event />
+        {events.map((event) => (
+          <Event
+            key={event.id}
+            event={event}
+            isSubscribed={subscriptionsEventsIds.includes(event.id)}
+          />
+        ))}
       </div>
     </div>
   );
