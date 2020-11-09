@@ -18,13 +18,15 @@ interface UserInterface {
 export const login = (
   email: string,
   password: string,
-  users: UserInterface[]
+  users: UserInterface[],
+  history: any
 ) => {
   let user: UserInterface | undefined = users.find(
     (u) => u.password === password && u.email === email
   );
   if (user) {
     delete user.password;
+    history.push('/');
     return {
       type: LOGIN_USER,
       payload: user
@@ -37,7 +39,11 @@ export const login = (
   }
 };
 
-export const join = (user: UserInterface, users: UserInterface[]) => {
+export const join = (
+  user: UserInterface,
+  users: UserInterface[],
+  history: any
+) => {
   if (users.find((u) => u.email === user.email)) {
     return {
       type: JOIN_USER_ERROR,
@@ -45,6 +51,7 @@ export const join = (user: UserInterface, users: UserInterface[]) => {
     };
   } else {
     user.id = short.generate();
+    history.push('/login');
     return {
       type: JOIN_USER,
       payload: user

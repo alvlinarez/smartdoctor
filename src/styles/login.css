@@ -85,3 +85,7 @@
   color: #ffffff;
   transition: all .3s ease 0ms;
 }
+
+.cardError {
+  color: #ff0000;
+}
