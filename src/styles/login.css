@@ -89,3 +89,15 @@
 .cardError {
   color: #ff0000;
 }
+
+/* Media queries - Responsive Design */
+
+@media only screen and (max-width: 600px) {
+  .loginContainer {
+    height: 400px;
+  }
+
+  .loginContainer .card {
+    margin: 0 5%;
+  }
+}

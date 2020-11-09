@@ -52,3 +52,21 @@
 .navOptionsContainer .navOption:last-child {
   margin-right: 0;
 }
+
+/* Media queries - Responsive Design */
+
+@media only screen and (max-width: 600px) {
+  .navTitle {
+    padding: 7px 20px;
+  }
+  .navTitle ul li .logoContainer {
+    width: 75px;
+  }
+  .navTitle ul li .logoContainer img {
+    width: 100%;
+  }
+  .navOptionsContainer .navOption {
+    width: 50px;
+    margin-right: 20px;
+  }
+}

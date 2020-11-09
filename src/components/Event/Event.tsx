@@ -26,20 +26,13 @@ const Event = ({ event, isSubscribed }: EventInterface) => {
     (state: { user: { users: any } }) => state.user.users
   );
 
-  const subscriptions = useSelector(
-    (state: { subscription: { subscriptions: any } }) =>
-      state.subscription.subscriptions
-  );
-
   const getAuthor = () => {
     const author = users.find((u: { id: any }) => u.id === authorId);
     return author.name;
   };
 
   const isEventOwner = () => {
-    return subscriptions.find(
-      (sub: any) => sub.userId === user.id && sub.eventId === event.id
-    );
+    return authorId === user.id;
   };
 
   const handleSubscribe = () => {

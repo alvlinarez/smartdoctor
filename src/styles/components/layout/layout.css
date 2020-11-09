@@ -3,3 +3,11 @@
   background-color: #fafafa;
   min-height: 80vh;
 }
+
+/* Media queries - Responsive Design */
+
+@media only screen and (max-width: 600px) {
+  .appContainer {
+    padding: 40px 20px;
+  }
+}
