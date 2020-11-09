@@ -13,17 +13,17 @@ const initialState = {
       eventId: '3'
     },
     {
-      id: '1',
+      id: '2',
       userId: '2',
       eventId: '1'
     },
     {
-      id: '1',
+      id: '3',
       userId: '1',
       eventId: '1'
     },
     {
-      id: '1',
+      id: '4',
       userId: '3',
       eventId: '3'
     }
@@ -44,9 +44,7 @@ export const subscriptionReducer = (
       return {
         ...state,
         subscriptions: state.subscriptions.filter(
-          (sub) =>
-            sub.userId !== action.payload.userId &&
-            sub.eventId !== action.payload.eventId
+          (sub) => sub.id !== action.payload.id
         )
       };
     default:

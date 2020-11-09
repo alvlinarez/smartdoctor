@@ -10,7 +10,7 @@ export const subscribe = (userId: string, eventId: string) => ({
   }
 });
 
-export const unsubscribe = (userId: string, eventId: string) => ({
+export const unsubscribe = (id: string) => ({
   type: UNSUBSCRIBE,
-  payload: { userId, eventId }
+  payload: { id }
 });

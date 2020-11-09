@@ -26,6 +26,11 @@ const Event = ({ event, isSubscribed }: EventInterface) => {
     (state: { user: { users: any } }) => state.user.users
   );
 
+  const subscriptions = useSelector(
+    (state: { subscription: { subscriptions: any } }) =>
+      state.subscription.subscriptions
+  );
+
   const getAuthor = () => {
     const author = users.find((u: { id: any }) => u.id === authorId);
     return author.name;
@@ -44,7 +49,10 @@ const Event = ({ event, isSubscribed }: EventInterface) => {
   };
 
   const handleUnsubscribe = () => {
-    dispatch(unsubscribe(user.id, event.id));
+    const subscription = subscriptions.find(
+      (s: any) => s.userId === user.id && s.eventId === event.id
+    );
+    dispatch(unsubscribe(subscription.id));
   };
 
   const formatEventDate = (eventDate: string) => {
